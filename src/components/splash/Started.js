@@ -12,7 +12,7 @@ const Started = () => {
 
     return (
         <NavigationContainer >
-            <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Navigator screenOptions={{ headerShown: false, gestureEnabled: false }}>
                 <Stack.Screen name="SplashScreen" component={SplashScreen} />
                 <Stack.Screen name="SplashNavigation" component={SplashNavigation} />
             </Stack.Navigator>

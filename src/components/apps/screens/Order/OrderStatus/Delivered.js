@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 
 const data = [
@@ -42,7 +42,7 @@ const Item = ({ item, onpress }) => (
         <Text style={{ fontSize: 16, fontWeight: '600', color: 'black' }}>{item.totalAmount}</Text>
       </View>
     </View>
-    <View style={[styles.rowItem, {marginTop: 16}]}>
+    <View style={[styles.rowItem, { marginTop: 16 }]}>
       <TouchableOpacity style={styles.buttonDetail}>
         <Text style={styles.textDetail}>Detail</Text>
       </TouchableOpacity>
@@ -52,12 +52,13 @@ const Item = ({ item, onpress }) => (
 );
 const Delivered = () => {
   return (
-    <View style={styles.container}>
-      {
-        data.map((item) => <Item key={item._id} item={item} />)
-      }
-    </View>
-
+    <ScrollView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        {
+          data.map((item) => <Item key={item._id} item={item} />)
+        }
+      </View>
+    </ScrollView>
   )
 }
 
@@ -65,17 +66,22 @@ export default Delivered
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
-    padding: 12, 
+    flex: 1,
+    padding: 12,
     backgroundColor: 'white',
   },
   containerItem: {
     flexDirection: 'column',
     padding: 12,
     backgroundColor: 'white',
-    elevation: 5,
     shadowColor: 'grey',
     borderRadius: 4,
+    shadowOffset: {
+      width: 1,
+      height: 3
+    },
+    shadowRadius: 5,
+    shadowOpacity: 0.3,
     marginBottom: 6
   },
   rowItem: {
